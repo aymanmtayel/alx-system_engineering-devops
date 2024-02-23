@@ -12,7 +12,7 @@ signal_ctr()
 }
 signal_clean()
 {
-	sudo bash -c "rm -f /var/run/myscript.pid"
+	sudo rm -f /var/run/myscript.pid
 	exit 0
 }
 trap 'signal_kill'  SIGTERM
