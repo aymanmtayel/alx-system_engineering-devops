@@ -3,12 +3,12 @@
 signal_kill()
 {
 	echo "I hate the kill command"
+	sudo rm -f /var/run/myscript.pid
 	exit 0
 }
 signal_ctr()
 {
 	echo "Y U no love me"
-	exit 0
 }
 signal_clean()
 {
