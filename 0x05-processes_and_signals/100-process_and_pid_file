@@ -8,7 +8,7 @@ signal_kill()
 }
 signal_ctr()
 {
-	echo "Y U no love me"
+	echo "Y U no love me?!"
 	exit 0
 }
 signal_clean()
