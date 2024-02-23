@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+#bash script to show a message and handle different signals
+signal_kill()
+{
+	echo "I hate the kill command"
+	exit 0
+}
+signal_ctr()
+{
+	echo "Y U no love me"
+	exit 0
+}
+signal_clean()
+{
+	rm -f /var/run/myscript.pid
+	exit 0
+}
+trap 'signal_kill'  SIGTERM
+trap 'signal_ctr' SIGINT
+trap 'signal_clean' SIGQUIT
+
+pid=$$
+echo "$pid" > /var/run/myscript.pid
+
+while true; do
+	echo "To infinity and beyond"
+	sleep 2
+done
