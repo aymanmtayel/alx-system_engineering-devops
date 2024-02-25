@@ -4,4 +4,4 @@ logs="apache-access.log"
 if [ ! -f "$logs" ]; then
 	exit 1
 fi
-awk '{ip_counter[$1" "$9]++} END { for (i in ip_counter) print ip_counter[i], i }' "$logs" | sort -rn
+awk '{ print $1, $9 }' < $logs | sort | uniq -c | sort -nr
