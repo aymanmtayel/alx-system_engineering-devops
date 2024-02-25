@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+#Bash script that displays the visitor IP along with the HTTP status code from the Apache log file.
+logs="apache-access.log"
+if [ ! -f "$logs" ]; then
+	exit 1
+fi
+awk '{ip_counter[$1" "$9]++} END { for (i in ip_counter) print ip_counter[i], i }' "$logs" | sort -rn
