@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+#Bash script that displays the content of the file /etc/passwd
+path="/etc/passwd"
+
+if [ ! -f "$path" ]; then
+	exit 1
+fi
+while IFS=: read -r username password uid group_id user_info home cmd_shell; do
+	echo "The user $username is part of the $group_id gang, lives in $home and rides $cmd_shell. $uid's place is protected by the passcode $password, more info about the user here: $user_info"
+done < "$path"
