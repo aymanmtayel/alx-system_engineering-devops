@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+#configuring server by changine localhost adress and facbook.com adress
+cp /etc/hosts ~/hosts.new
+_new="127.0.0.2"
+sed -i "s/127.0.0.1/$_new/" ~/hosts.new
+echo "8.8.8.8 facebook.com">> ~/hosts.new
+sudo cp -f ~/hosts.new /etc/hosts
