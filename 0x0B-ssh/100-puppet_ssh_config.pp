@@ -1,3 +1,5 @@
+# Setting the server using puppet code
+
 include stdlib
 
 file_line { 'Use Private key':
