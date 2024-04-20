@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+#configure the access to a server without a password
+
+Host 54.237.41.246
+
+IdentifyFile ~/.ssh/school
+PasswordAuthentication no
