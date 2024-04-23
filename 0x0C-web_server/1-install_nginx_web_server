@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
 #install nginx on server and configure it to show hello world!
 
-sudo apt-get update
-sudo apt-get install -y nginx
-sudo ufw allow 'Nginx HTTP'
+apt-get update
+apt-get install -y nginx
+ufw allow 'Nginx HTTP'
 
-sudo bash -c 'echo "Hello World!" > /var/www/html/index.html'
-
+echo "Hello World!" > /var/www/html/index.html
 sudo service nginx start
