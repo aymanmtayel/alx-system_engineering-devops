@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 # the same code but with kill
-
 sed -i 's/8080/80/g' /etc/nginx/sites-enabled/default
 service nginx start
 pkill -o nginx
