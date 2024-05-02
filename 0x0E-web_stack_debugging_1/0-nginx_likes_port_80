@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# debug nginx server to listen to port 80 and start the service
+#debug nginx server to listen to port 80 and start the service
 sudo apt-get -y update
 sudo apt-get install -y ngnix
 sed -i 's/8080/80/g' /etc/nginx/sites-enabled/default
