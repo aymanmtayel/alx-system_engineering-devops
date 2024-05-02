@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+#function to show info for my domains
+
+show_info() {
+    subdomain=$1
+    domain=$2
+    Rtype=$(dig $subdomain.$domain | grep -A1 'ANSWER SECTION:' | tail -1 | awk '{print $4}')
+    IPN=$(dig $subdomain.$domain | grep -A1 'ANSWER SECTION:' | tail -1 | awk '{print $5}')
+    echo "The subdomain $subdomain is a $Rtype record and points to $IPN"
+}
+
+main() {
+    domain=$1
+    subdomain=$2
+
+    if [ $# == 1 ]; then
+	    default_sub=("www" "lb-01" "web-01" "web-02")
+	    for subs in "${default_sub[@]}"; do
+		    show_info $subs $domain
+	    done
+    elif [ $# == 2 ]; then
+	    show_info $subdomain $domain
+    fi
+}
+main "$@"
