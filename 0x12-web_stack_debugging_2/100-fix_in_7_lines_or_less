@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# script that configures the container to change port and user
+
+sudo service nginx stop
+
+sed -i 's/user\s*nginx;/user nginx;/' /etc/nginx/nginx.conf
+sed -i '/s/listen\s*80;/listen 8080;/' /etc/nginx/sites-available/default
+sudo service nginx start
